@@ -223,6 +223,15 @@ protected:
                                    hsize_t *block,
                                    float* data);
 
+  void HDF5_Read_DOUBLE_Array_Data(hid_t id_DataSet,
+                                   int rank,
+                                   hsize_t *data_dims,
+                                   hsize_t *offset,
+                                   hsize_t *stride,
+                                   hsize_t *count,
+                                   hsize_t *block,
+                                   double* data);
+
   void HDF5_Write_FLOAT_Array_Data(hid_t id_DataSet,
                                    int rank,
                                    hsize_t *data_dims,
@@ -231,6 +240,15 @@ protected:
                                    hsize_t *count,
                                    hsize_t *block,
                                    float* data);
+
+  void HDF5_Write_DOUBLE_Array_Data(hid_t id_DataSet,
+                                   int rank,
+                                   hsize_t *data_dims,
+                                   hsize_t *offset,
+                                   hsize_t *stride,
+                                   hsize_t *count,
+                                   hsize_t *block,
+                                   double* data);
 
   void HDF5_Read_STRING_Array_Data(hid_t id_DataSet,
                                    int rank,
@@ -279,7 +297,8 @@ private:
   void Build_All_Attributes(vtkSmartPointer<vtkUnstructuredGrid> All_Mesh, int All_Mesh_Current_Time);  // need to implement
   void Build_Delaunay3D_Gauss_Mesh(vtkSmartPointer<vtkUnstructuredGrid> Mesh);
   void Build_ProbeFilter_Gauss_Mesh(vtkSmartPointer<vtkUnstructuredGrid> Probe_Input, int probe_type);  // Probing variables at gauss nodes from node mesh
-  void Build_Stress_Field_At_Nodes(vtkSmartPointer<vtkUnstructuredGrid> Gauss_Mesh, int Node_Mesh_Current_Time);
+  void Build_Stress_Field_At_Nodes_v2(vtkSmartPointer<vtkUnstructuredGrid> Gauss_Mesh, int Node_Mesh_Current_Time);
+  void Build_Stress_Field_At_Nodes(vtkSmartPointer<vtkUnstructuredGrid> Node_Mesh, int Node_Mesh_Current_Time);
   double *Time; 
  
   char* FileName;
